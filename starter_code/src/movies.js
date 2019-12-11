@@ -41,3 +41,13 @@ let rates = movies.map(({ rate }) => rate);
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 console.log((rates.reduce(reducer) / rates.length).toFixed(2));
+
+let dramaMovies = movies.filter(movie => {
+    if (movie.genre.includes("Drama")) return movie;
+});
+
+let dramaMoviesRate = dramaMovies.map(({ rate }) => rate);
+
+console.log(
+    (dramaMoviesRate.reduce(reducer) / dramaMoviesRate.length).toFixed(2)
+);
